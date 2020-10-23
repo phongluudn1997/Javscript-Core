@@ -37,6 +37,12 @@ function PersonFunction(name){
   return personObj;
 }
 
+
+/*
+  Way 3: Using Function Constructor.
+  We must use new opperator to bind `this`
+  to newly created object.
+*/
 function PersonConstructor(name){
   this.name = name;
 }
@@ -48,8 +54,6 @@ PersonConstructor.prototype.speak = function(line){
 let person1 = new Person("John")
 let person2 = PersonFunction("Jane")
 let person3 = new PersonConstructor("Anna")
-
-
 
 console.log(Object.getPrototypeOf(person1) === Person.prototype) // -> true
 console.log(Object.getPrototypeOf(person2) === personProto) // -> true
