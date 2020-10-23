@@ -21,13 +21,12 @@ killerRabbit.speak("SKREEE!");
 // -> The killer rabbit says 'SKREEE!'
 
 // Get prototype of an object
-console.log(Object.getPrototypeOf(killerRabbit));
+console.log(Object.getPrototypeOf(killerRabbit) === protoRabbit);
 // -> protoRabbit
 
 /*
-  Instead of write code like this:
-  killerRabbit.type = "killer"
-  We need a constructor function does this for us.
+  Another way using function to create an object with specific
+  prototype for us.
 */
 
 function makeRabbit(type) {
@@ -36,6 +35,8 @@ function makeRabbit(type) {
   return rabbit;
 }
 let whiteRabbit = makeRabbit("white");
+console.log(Object.getPrototypeOf(whiteRabbit) === protoRabbit)
+// -> true
 // Work like the same as above.
 
 /*
@@ -50,7 +51,8 @@ Rabbit.prototype.speak = function(line){
 }
 
 let blackRabbit = new Rabbit("black");
-blackRabbit.speak("BLACK!");
+console.log(Object.getPrototypeOf(blackRabbit) === Rabbit.prototype)
+// -> true
 
 /*
 We need opperator `new` to bind `this` from global object
