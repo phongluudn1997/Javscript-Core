@@ -37,6 +37,21 @@ function makeRabbit(type) {
 }
 let whiteRabbit = makeRabbit("white");
 // Work like the same as above.
+
+/*
+Another easier way is using opperator `new`, this will create
+an empty object with exact prototype, then bind this object to keyword `this` automatically
+*/
+function Rabbit(type){
+  this.type = type;
+}
+Rabbit.prototype.speak = function(line){
+  console.log(`The ${this.type} rabbit says '${line}'`)
+}
+
+let blackRabbit = new Rabbit("black");
+blackRabbit.speak("BLACK!");
+
 /*
 We need opperator `new` to bind `this` from global object
 to the newly created empty object.
