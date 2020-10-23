@@ -4,18 +4,20 @@
 /*
   Way 1: Through class notation.
   Create a constructor function named Person.
-  Create an object has prototype is Person.prototype
+  Create an object has prototype is Person.prototype.
+  Class declarations currently allow only method-properties that
+  hold function.
 */
 class Person {
   constructor(name){
     this.name = name
   }
-
-  leg = 2;
   speak(line){
     console.log(`${this.name} says ${line}`)
   }
 }
+
+Person.prototype.legs = 2;
 
 /*
   Way 2: Original way
@@ -46,6 +48,7 @@ PersonConstructor.prototype.speak = function(line){
 let person1 = new Person("John")
 let person2 = PersonFunction("Jane")
 let person3 = new PersonConstructor("Anna")
+
 
 
 console.log(Object.getPrototypeOf(person1) === Person.prototype) // -> true
