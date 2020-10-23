@@ -58,3 +58,12 @@ console.log(Object.getPrototypeOf(blackRabbit) === Rabbit.prototype)
 We need opperator `new` to bind `this` from global object
 to the newly created empty object.
 */
+
+/*
+  An object has a prototype. We can get it through Object.getPrototypeOf(object)
+  A Function has a prototype. Object.getPrototypeOf(function) -> Function.prototype.
+  A Function also has a property named prototype, which is an empty object derives from Object.prototype.
+  A Constructor Function has property named prototype, which contains all properties we want children to inherit.
+*/
+console.log(Object.getPrototypeOf(Rabbit) === Function.prototype) // -> true
+console.log(Rabbit.prototype) // -> {speak: Method}
