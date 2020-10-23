@@ -35,7 +35,7 @@ function makeRabbit(type) {
   rabbit.type = type;
   return rabbit;
 }
-let whiteRabbit = new makeRabbit("white");
+let whiteRabbit = makeRabbit("white");
 // Work like the same as above.
 /*
 We need opperator `new` to bind `this` from global object
