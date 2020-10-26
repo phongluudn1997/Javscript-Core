@@ -1,3 +1,5 @@
+// "use strict";
+
 /*
   `this` when use in a function, always refer to
   global object.
@@ -16,6 +18,12 @@ let rabbitObj = {
       // -> this refer to global object
     }
     letSayThis();
+
+    const arrFunc = () => {
+      console.log(this);
+      // -> this refer to caller object.
+    };
+    arrFunc();
   },
 };
 
