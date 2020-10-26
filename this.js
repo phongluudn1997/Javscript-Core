@@ -7,16 +7,16 @@
 */
 
 let rabbitObj = {
-  speak: function() {
-    console.log(this)
+  speak: function () {
+    console.log(this);
     // -> this refer to the caller object
 
-    function letSayThis(){
-      console.log(this)
+    function letSayThis() {
+      console.log(this);
       // -> this refer to global object
     }
     letSayThis();
-  }
-}
+  },
+};
 
 rabbitObj.speak();
