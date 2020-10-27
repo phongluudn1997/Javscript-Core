@@ -21,7 +21,8 @@ let rabbitObj = {
 
     const arrFunc = () => {
       console.log(this);
-      // -> this refer to caller object.
+      // -> because this arrow function is called in speak function
+      // so that it also has this.
     };
     arrFunc();
   },
