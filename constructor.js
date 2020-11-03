@@ -41,6 +41,13 @@ function PersonFunction(name) {
   We must use new opperator to bind `this`
   to newly created object.
 */
+
+/**
+ * Step 1: New empty object created
+ * Step 2: Function is called, this => newly created empty object
+ * Step 3: bind properties to object through this, link object to prototype
+ * Step 4: Return created object with all bound properties
+ */
 function PersonConstructor(name) {
   this.name = name;
 
