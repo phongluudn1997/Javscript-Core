@@ -69,3 +69,27 @@ let person3 = new PersonConstructor("Anna");
 console.log(Object.getPrototypeOf(person1) === Person.prototype); // -> true
 console.log(Object.getPrototypeOf(person2) === personProto); // -> true
 console.log(Object.getPrototypeOf(person3) === PersonConstructor.prototype); // -> true
+
+/**
+ * Implement Inheritance without using class syntax
+ * Step 1: Declare Person constructor function
+ * Step 2: Declare Student constructor function using call method
+ * Step 3: Set Student.prototype to Person.prototype
+ * Step 4: Set Student.prototype.constructor to Student Constructor Function
+ */
+
+function Animal(legs) {
+  this.legs = legs;
+}
+
+function Dog(legs, kind) {
+  Animal.call(this, legs);
+  this.kind = kind;
+}
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.bark = function () {
+  console.log("GAU");
+};
+Dog.prototype.constructor = Dog;
+
+const golden = new Dog(4, "Golden");
