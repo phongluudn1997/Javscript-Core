@@ -7,10 +7,12 @@
   Class declarations currently allow only method-properties that
   hold function.
 */
+// Class is not hoisted, even if with declaration or expression
 class Person {
   constructor(name) {
     this.name = name;
   }
+  // This method will exists on Person.prototype, not in object itself
   speak(line) {
     console.log(`${this.name} says ${line}`);
   }
