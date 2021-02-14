@@ -26,3 +26,26 @@ function out(x) {
 # Scope chain
 
 Scope chain: Javascript is going to look inside the current execution context to see if the variable "x" exist, if doesn't so it will go up the scope chain to the next closest parent execution context in this case it is closure scope, it will look for that variable and it exist
+
+# Call, Apply and Bind
+
+Call and apply behave exactly the same way, they will immediately invoke the function. With **call** you pass argument one by one, with **bind** you pass as an array.
+Bind exactly the same as call, but instead of immediatly invoke the function, it will return you a brand new function so you can invoke later
+
+```javascript
+const me = {
+  name: "luu",
+  age: 24,
+};
+
+function greeting(language1, language2) {
+  console.log(
+    `Hi, my name is ${this.name} and I'm ${this.age} years old. And I love ${language1} and ${language2}`
+  );
+}
+
+greeting.call(me, "javascript", "english");
+greeting.apply(me, ["javascript", "english"]);
+const laterUse = greeting.bind(me, "javascript", "english");
+laterUse();
+```
