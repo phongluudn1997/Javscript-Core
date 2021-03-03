@@ -29,7 +29,7 @@ Scope chain: Javascript is going to look inside the current execution context to
 
 # Call, Apply and Bind
 
-Call and apply behave exactly the same way, they will immediately invoke the function. With **call** you pass argument one by one, with **bind** you pass as an array.
+Call and apply behave exactly the same way, they will immediately invoke the function. With **call** you pass argument one by one, with **apply** you pass as an array.
 Bind exactly the same as call, but instead of immediatly invoke the function, it will return you a brand new function so you can invoke later
 
 ```javascript
