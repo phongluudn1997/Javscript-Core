@@ -56,3 +56,10 @@ laterUse();
 - Call **this** in simple function: this => undefined (strict mode) or global object (sloppy mode)
 - Call **this** in arrow function: this => this of parent scope (method or global). This is call lexical this
 - Call **this** in event listener: this => DOM Element that call callback.
+
+# Primitives vs Objects (Primitives vs Reference Types)
+
+JS Engine has two components:
+
+- Call stack where functions are executed: Primitives (or Primitive types) are store in the call stack, in execution context which they are declared
+- Heap where objects are stored in memory: All objects (or Reference types) are get stored in the memory heap
