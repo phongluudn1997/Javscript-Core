@@ -64,7 +64,7 @@ JS Engine has two components:
 - Call stack where functions are executed: Primitives (or Primitive types) are store in the call stack, in execution context which they are declared
 - Heap where objects are stored in memory: All objects (or Reference types) are get stored in the memory heap
 
-### Primitives
+## Primitives
 
 When we declare a variable like _age_ equals 30, in Call stack Javascript will create a so-called unique **identifier** with the variable name (_age_). Then a piece a
 memory will be allocated with a certain address, 001 in this example and finally the value will be stored in memory at the specified address. So in this case, the value 30 will be specified at memory address 001
@@ -72,9 +72,22 @@ memory will be allocated with a certain address, 001 in this example and finally
 When we declare new varialbe _oldAge_ equals to _age_, it will simply point to the same memory address as the age variable, so it also holds the value of 30.
 In the next line, we set _age_ to 31, the value at address _0001_ will certainly not become 31 because that would change _oldAge_ as well, since they both point to the same address. The value at a certain memory address is **immutable**. In stead, a new piece of memory is allocated and the age identifier now simply points to the new address which is holding the new value of 31.
 
-### Reference Types
+## Reference Types
 
 When a new object is created such as _me_ object, it is stored in the heap. And such as before, there is a memory address and then the value itself. In case of reference values like _me_ object, the _me_ identifier does not point directly to the newly created memory address in the heap. In stead, it will point to a new piece of memory that's created in the stack. And this new piece of memory will point to the object that's in the heap by using memory address as its value. In other words, the piece of memory in the call stack has a reference to the piece of memory in the heap. So why we call object reference type
 And it works this way because objects maybe too large to be stored in the call stack.
 When we created a new variable _friend_ equals to _me_ object, the _friend_ identifier will point to the exact same memory address as _me_ identifier. That address contains the reference, which then points to the object itself. When we change a property in the _friend_ object, we modify the property right in the heap. By the way, even though we defined the _friend_ variable as a constant, we can actually still manipulate the object without problems! Because we actually not changing the value in memory for the _friend_ identifier, all we did is to change the value in the heap. So not variables declared with const is immutable. In fact, it's only true for primitive values, but not for reference values!
 ![image](/images/primitive_reference.png)
+
+# Prototypes
+
+Each and every function in Javascript automatically has a property called **prototype** includes **construction function**. Now every object created by constructor function will get access to (inherit) all the methods and properties that we defined on the constructors prototype property.
+
+A prototype of an object is simply the prototype property of constructor function
+
+```javascript
+Object.getPrototypeOf(object);
+ConstructorFunction.prototype;
+object.__proto__;
+ConstructorFunction.prototype.isPrototypeOf(object);
+```
