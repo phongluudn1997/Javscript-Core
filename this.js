@@ -7,24 +7,31 @@
 
 */
 
-// let rabbitObj = {
-//   speak: function () {
-//     console.log(this);
-//     // -> this refer to the caller object
+/**
+ * Method => this: Object that is calling the method
+ * Simple function call => this: undefined (strict mode) or window object (sloppy mode)
+ * Arrow funcion => this: this of surrounding function (lexical this)
+ * Event listener => this: DOM Element that the handler is attached to
+ */
 
-//     function letSayThis() {
-//       console.log(this);
-//       // -> this refer to global object
-//     }
-//     letSayThis();
+let rabbitObj = {
+  speak: function () {
+    console.log(this);
+    // -> this refer to the caller object
 
-//     const arrFunc = () => {
-//       console.log(this);
-//       // -> because this arrow function is called in speak function
-//       // so that it also has this.
-//     };
-//     arrFunc();
-//   },
-// };
+    function letSayThis() {
+      console.log(this);
+      // -> this refer to global object
+    }
+    letSayThis();
 
-// rabbitObj.speak();
+    const arrFunc = () => {
+      console.log(this);
+      // -> because this arrow function is called in speak function
+      // so that it also has this.
+    };
+    arrFunc();
+  },
+};
+
+rabbitObj.speak();
