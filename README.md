@@ -49,3 +49,10 @@ greeting.apply(me, ["javascript", "english"]);
 const laterUse = greeting.bind(me, "javascript", "english");
 laterUse();
 ```
+
+# This keyword
+
+- Call **this** in method: this => object call that method (not the object contains method)
+- Call **this** in simple function: this => undefined (strict mode) or global object (sloppy mode)
+- Call **this** in arrow function: this => this of parent scope (method or global). This is call lexical this
+- Call **this** in event listener: this => DOM Element that call callback.
