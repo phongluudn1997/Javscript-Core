@@ -94,4 +94,90 @@ ConstructorFunction.prototype.isPrototypeOf(object);
 
 ![image](/images/constructor-function.png)
 
-The prototype of an object is also an object. So is also has prototype, we call this prototype chain. The ancestor of all objects is Object.prototype, the prototype of Oject.prototype is **null**
+The prototype of an object is also an object. So it also has prototype, we call this prototype chain. The ancestor of all objects is Object.prototype, the prototype of Oject.prototype is **null**
+
+There are three ways to create an object derived from a prototype, here we wil also implement how to inherit between **classes** (Javascript actually doesn't have classes)
+
+1. Using Object.create
+
+- Step 1: Create object called **personProto** (we use this object as prototype of **studentProto** object)
+- Step 2: Create object called **studentProto** inherit from **personProto** (we use this objet as prototype of **studentInstance** object)
+- Step 3: Create object called **studentInstance** inherit from **studentProto**
+
+```javascript
+// Step 1
+const personProto = Object.create(Object.prototype);
+personProto.init = function (firstName) {
+  this.firstName = firstName;
+};
+
+// Step 2
+const studentProto = Object.create(personProto);
+studentProto.init = function (firstName, grade) {
+  // Here we borrow method from personProto so we need to explicitly tell *this* in personProto.init method is studentProto object.
+  personProto.init.call(this, firstName);
+  this.grade = grade;
+};
+
+// Step 3
+const studentInstance = Object.create(studentProto);
+studentInstance.init("Luu", 5);
+```
+
+2. Using Constructor Function
+
+Internal Step when we create a Construction Function
+
+- Step 1: Javascript implicitly create an empty object
+- Step 2: Javascript bind **this** in the Constructor Function to the newly created object (which originally have value of global object in sloppy mode or undefined in strict mode)
+- Step 3: Javascript set that constructor function prototype propety to be the prototype of newly created object. The properties after **this.** will includes in the object, the properties and methods which we want all the object to inherit should put in the prototype of object (object.**proto** or constructorFunction.prototype)
+- Step 4: Javascript implicitly return that object
+
+**Note**: Constructor Function works fine with function declaration and function expression. Arrow function does not have this so it won't work
+
+```javascript
+function Person(firstName) {
+  this.firstName = firstName;
+}
+
+Person.prototype.legs = 2;
+
+function Student(firstName, grade) {
+  Person.call(this, firstName);
+  this.grade = grade;
+}
+
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.speak = function () {
+  console.log(this.firstName, this.grade);
+};
+
+const student = new Student("Luu", 5);
+```
+
+3. Using ES6 Class Notation
+
+```javascript
+class Person {
+  constructor(firstName) {
+    this.firstName = firstName;
+  }
+}
+
+// ES6 Classes haven't have mechanism for setting properties in class so we need to do this
+Person.prototype.legs = 2;
+
+class Student extends Person {
+  constructor(firstName, grade) {
+    super(firstName);
+    this.grade = grade;
+  }
+
+  speak() {
+    console.log(this.firstName, this.grade);
+  }
+}
+
+const student = new Student("Luu", 5);
+```

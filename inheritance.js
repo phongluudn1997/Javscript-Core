@@ -45,8 +45,11 @@ const ChildProto = Object.create(ParentProto);
 
 ChildProto.init = function (firstName, lastName) {
   ParentProto.init.call(this, firstName);
+  ChildProto.__proto__.init.call(this, firstName);
+
   this.lastName = lastName;
 };
 
 const child3 = Object.create(ChildProto);
 child3.init("firstName", "lastName");
+console.log(child3);

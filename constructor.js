@@ -91,5 +91,4 @@ Dog.prototype.bark = function () {
   console.log("GAU");
 };
 Dog.prototype.constructor = Dog;
-
 const golden = new Dog(4, "Golden");
