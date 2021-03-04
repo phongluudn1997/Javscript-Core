@@ -91,3 +91,7 @@ ConstructorFunction.prototype;
 object.__proto__;
 ConstructorFunction.prototype.isPrototypeOf(object);
 ```
+
+![image](/images/constructor-function.png)
+
+The prototype of an object is also an object. So is also has prototype, we call this prototype chain. The ancestor of all objects is Object.prototype, the prototype of Oject.prototype is **null**
