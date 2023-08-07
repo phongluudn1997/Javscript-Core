@@ -27,10 +27,22 @@ function out(x) {
 
 Scope chain: Javascript is going to look inside the current execution context to see if the variable "x" exist, if doesn't so it will go up the scope chain to the next closest parent execution context in this case it is closure scope, it will look for that variable and it exist
 
+# Asynchronous
+In Javascript:
+* Tasks will be handled by Callstack.
+* Async jobs bill be run behind the scene in WebAPIs which is part of runtime environment (Browser engine, Node engine, etc.) - Example of async jobs: Timer (setTimeout, setInterval), DOM event listeners (addEventListeners), Fetch API (fetch).
+* Async tasks and their callbacks will be registered in the WebAPIs first, only the async tasks are done (load image, set timeout, fetch, etc.), the callback will be put in either `Callback Queue` or `Microtasks Queue`.
+* `Event loop` looks at the `Callstack`, if it's empty (except for Global Execution Context), event loop will push tasks from `Callback Queue` and `Microtasks Queue` to the `Callstack`. 
+* `Callback Queue` holds regular callbacks from Timer and DOM tasks.
+* `Microtasks Queue` holds callbacks from Promises (then, catch).
+* Priority: `Microtasks Queue` > `Callback Queue` -> That means, if there are tasks in both Microtasks Queue and Callback Queue, `Event Loop` will prioritize the tasks in Microtasks Queue and put them in the Callstack. When Microtasks Queue is empty, Event Loop will look into the Callback Queue and put them to the Callstack.
+  ![img.png](images/asynchronous.png)
+
+
 # Call, Apply and Bind
 
-Call and apply behave exactly the same way, they will immediately invoke the function. With **call** you pass argument one by one, with **apply** you pass as an array.
-Bind exactly the same as call, but instead of immediatly invoke the function, it will return you a brand new function so you can invoke later
+`Call` and `apply` behave exactly the same way, they will immediately invoke the function. With **call** you pass argument one by one, with **apply** you pass as an array.
+Bind exactly the same as call, but instead of immediately invoke the function, it will return you a brand new function so you can invoke later
 
 ```javascript
 const me = {
