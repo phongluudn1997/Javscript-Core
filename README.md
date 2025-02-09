@@ -1,3 +1,25 @@
+# Paradigm
+Definition: Paradigm - An approach and mindset of structuring code, which will direct your coding style and technique.
+* Procedural programming
+* Object-oriented programming (OOP)
+* Function programing (FP)
+
+# Javascript Engines
+![img.png](images/javascript_engine.png)
+Javascript Engine contains 2 things: 
+* Call stack
+  * Where code is executed using Execution context
+* Heap
+  * Where objects are stored
+
+# Computer science side note: Compilation vs Interpretation
+Definitions:
+* Compilation: Entire code is converted into machine code at once, and written to a binary file that can be executed by a computer.
+* Interpretation: Interpreter runs through the source code and executes it line by line.
+* Just-in-time (JIT) compilation: Entire code is converted into machine code at once, then executed immediately.
+![img.png](compilation_vs_interpretation/img.png)
+Javascript is primarily an interpreted language, but modern Javascript engine use a mix of interpretation and Just-In-Time (JIT) compilation to improve performance.
+
 # Execution context
 
 When the Javascript Program start to run, it creates a global execution context. This execution context has 2 phases: **Creation Phase** and **Execution Phase**
@@ -193,3 +215,13 @@ class Student extends Person {
 
 const student = new Student("Luu", 5);
 ```
+
+# Variable keywords (WIP - Redeclare and Reassign seems not correct)
+There are 3 ways to declare a new variables using `var`, `let` and `const`.
+
+|          | var            | let   | const                                           |
+|----------|----------------|-------|-------------------------------------------------|
+| Scope    | Global / Local | Block | Block                                           |
+| Redeclare | Yes            | No    | Yes                                             |
+| Reassign | Yes            | Yes   | No - Primitive values<br/>Yes - Object reference |
+| Hoisting |                |       | No                                              |
