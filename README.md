@@ -17,7 +17,7 @@ Definitions:
 * Compilation: Entire code is converted into machine code at once, and written to a binary file that can be executed by a computer.
 * Interpretation: Interpreter runs through the source code and executes it line by line.
 * Just-in-time (JIT) compilation: Entire code is converted into machine code at once, then executed immediately.
-![img.png](compilation_vs_interpretation/img.png)
+![img.png](images/compilaltion_vs_interpretation.png)
 Javascript is primarily an interpreted language, but modern Javascript engine use a mix of interpretation and Just-In-Time (JIT) compilation to improve performance.
 
 # Execution context
