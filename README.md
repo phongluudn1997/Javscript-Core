@@ -21,6 +21,17 @@ Definitions:
 Javascript is primarily an interpreted language, but modern Javascript engine use a mix of interpretation and Just-In-Time (JIT) compilation to improve performance.
 
 # Execution context
+There are 2 types of Execution Contexts:
+* Global Execution Context
+* Function Execution Context
+
+Execution Context contains:
+1. Variable Environment
+   * let, const and var declarations
+   * Functions
+   * arguments object (Not in arrow functions)
+2. Scope chain
+3. This keyword (Not in arrow functions - lexical)
 
 When the Javascript Program start to run, it creates a global execution context. This execution context has 2 phases: **Creation Phase** and **Execution Phase**
 
@@ -32,6 +43,7 @@ In the creation phase, 4 different things happen:
 4. Variables declarations get assigned a default value of undefined (hoisting) and function themselves place entirely in memory
 
 The next type of execution context is the Function Execution context which will happen when a function is invoked. The function execution context is exactly the same as global execution context except for creating a global object we create an arguments object and any arguments passed in the function get added as it like local variables to the execution context.
+![img.png](images/execution_context.png)
 
 # Closure
 
