@@ -12,9 +12,9 @@ function a() {
 }
 
 const innerFunc = a();
-// innerFunc();
-// innerFunc();
-// innerFunc();
+innerFunc();
+innerFunc();
+innerFunc();
 
 /**
  * innerFunc can add to count even when the a function is executed
@@ -22,11 +22,3 @@ const innerFunc = a();
  * in scope.
  */
 
-// IIFE
-(function () {
-  const header = document.getElementById("header");
-  header.style.color = "red";
-  document.addEventListener("click", function () {
-    header.style.color = "blue";
-  });
-})();
