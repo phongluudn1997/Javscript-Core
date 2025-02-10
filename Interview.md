@@ -23,6 +23,17 @@ Are `let` and `const` hoisted?
 Can object which is declared by keyword `const` be modified?
 : Yes, because the object is stored in Heap, but `const` only prevent re-assigning this identifier to new address in Callstack.
 
+# React
+
+What is the Virtual DOM in React?
+: Is a lightweight copy of real DOM that React uses for efficient updates
+: React creates a virtual DOM
+: It compares it with previous version 
+: It updates only the changed parts in the real DOM
+
+How to prevent re-render in React?
+: React.memo to prevent child re-render if its parent re-render even if its props haven't changed, useMemo for expensive computations, useCallback to prevent function re-creation, useRef to keep values without re-renders When you change the ref.current property, React does not re-render your component. React is not aware of when you change it because a ref is a plain JavaScript object.
+
 
 # Algorithm
 Given a string s containing just the characters parentheses/square brackets/curly brackets '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
