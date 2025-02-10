@@ -57,9 +57,14 @@ function out(x) {
 }
 ```
 
-# Scope chain
-
+# Scope
+Definition: Space or environment in which a certain variable is declared.
+There is global scope, function scope, and block scope.
 Scope chain: Javascript is going to look inside the current execution context to see if the variable "x" exist, if doesn't so it will go up the scope chain to the next closest parent execution context in this case it is closure scope, it will look for that variable and it exist
+* Global scope
+  * Contain variables declared outside any function or block
+  * Variables declared in global scope can be accessed everywhere
+![img.png](images/scope.png)
 
 # Asynchronous
 In Javascript:
@@ -123,6 +128,7 @@ In the next line, we set _age_ to 31, the value at address _0001_ will certainly
 When a new object is created such as _me_ object, it is stored in the heap. And such as before, there is a memory address and then the value itself. In case of reference values like _me_ object, the _me_ identifier does not point directly to the newly created memory address in the heap. In stead, it will point to a new piece of memory that's created in the stack. And this new piece of memory will point to the object that's in the heap by using memory address as its value. In other words, the piece of memory in the call stack has a reference to the piece of memory in the heap. So why we call object reference type
 And it works this way because objects maybe too large to be stored in the call stack.
 When we created a new variable _friend_ equals to _me_ object, the _friend_ identifier will point to the exact same memory address as _me_ identifier. That address contains the reference, which then points to the object itself. When we change a property in the _friend_ object, we modify the property right in the heap. By the way, even though we defined the _friend_ variable as a constant, we can actually still manipulate the object without problems! Because we actually not changing the value in memory for the _friend_ identifier, all we did is to change the value in the heap. So not variables declared with const is immutable. In fact, it's only true for primitive values, but not for reference values!
+
 ![image](/images/primitive_reference.png)
 
 # Prototypes
@@ -227,13 +233,3 @@ class Student extends Person {
 
 const student = new Student("Luu", 5);
 ```
-
-# Variable keywords (WIP - Redeclare and Reassign seems not correct)
-There are 3 ways to declare a new variables using `var`, `let` and `const`.
-
-|          | var            | let   | const                                           |
-|----------|----------------|-------|-------------------------------------------------|
-| Scope    | Global / Local | Block | Block                                           |
-| Redeclare | Yes            | No    | Yes                                             |
-| Reassign | Yes            | Yes   | No - Primitive values<br/>Yes - Object reference |
-| Hoisting |                |       | No                                              |

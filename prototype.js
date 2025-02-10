@@ -2,7 +2,7 @@
   Each object has a prototype.
   Prototype is another object works like a fallback
   of property sources.
-  Acestor Prototype is Object.prototype.
+  Ancestor Prototype is Object.prototype.
   We also have many built-in prototype likes
   Array.prototype, Function.prototype.
 */
@@ -40,7 +40,7 @@ console.log(Object.getPrototypeOf(whiteRabbit) === protoRabbit)
 // Work like the same as above.
 
 /*
-Another easier way is using opperator `new`, this will create
+Another easier way is using operator `new`, this will create
 an empty object with exact prototype, then bind this object to keyword `this` automatically
 */
 function Rabbit(type){
@@ -55,7 +55,7 @@ console.log(Object.getPrototypeOf(blackRabbit) === Rabbit.prototype)
 // -> true
 
 /*
-We need opperator `new` to bind `this` from global object
+We need operator `new` to bind `this` from global object
 to the newly created empty object.
 */
 
