@@ -1,4 +1,9 @@
-1. var, let and const
+# Project experience
+* Which pattern that NestJS use? DI, MVC, Decorator, CQRS
+* Which pattern that ExpressJS use? Middleware
+
+# Javascript Core
+* var, let and const
 
 | Feature                   | var       | let                                                    | const                                                  |
 |---------------------------|-----------|--------------------------------------------------------|--------------------------------------------------------|
