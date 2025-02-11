@@ -1,6 +1,7 @@
 # Project experience
 * Which pattern that NestJS use? DI, MVC, Decorator, CQRS
 * Which pattern that ExpressJS use? Middleware
+* What is Tan-stack Query, what state it should handle? How does it compare with Redux and Zustand
 
 # Javascript Core
 * var, let and const
@@ -31,9 +32,24 @@ What is the Virtual DOM in React?
 : It compares it with previous version 
 : It updates only the changed parts in the real DOM
 
+Why does a React component rerender?
+: State change
+: Props change - useMemo
+: Parent rerender, even if props does not change - React.memo
+: Context updates
+: useEffect update state
+: Inline Functions & Objects
+
+```jsx
+function Parent() {
+  const [count, setCount] = useState(0);
+  return <Child onClick={() => console.log("Clicked!")} />; 
+}
+// Every render, onClick is a new function reference, causing <Child> to re-render.
+```
+
 How to prevent re-render in React?
 : React.memo to prevent child re-render if its parent re-render even if its props haven't changed, useMemo for expensive computations, useCallback to prevent function re-creation, useRef to keep values without re-renders When you change the ref.current property, React does not re-render your component. React is not aware of when you change it because a ref is a plain JavaScript object.
-
 
 # Algorithm
 Given a string s containing just the characters parentheses/square brackets/curly brackets '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
