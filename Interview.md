@@ -60,3 +60,33 @@ An input string is valid if:
 
 1. Stack - If open brackets (,{,[ add to stack, encounter close brackets pop the latest. If latest is not same type => false, if at the end stack is empty => true.
 2. Recursive: Check odd, even. Check if open bracket start the string. Return true if string are "[]", "{}" or "()". Find substring of it and check them.
+
+# Exercise
+Closure + Event Loop
+```javascript
+function closureEventLoop() {
+    // Initialize variables which will survive in closure after parent function long gone.
+    let count = 0
+    let message = `${count}`
+    return function() {
+        // Macrotask
+        setTimeout(() => console.log("Macro"), 0)
+        // Microtask
+        Promise.resolve().then(() => console.log("Micro"))
+        // Callstack
+        for(let i = 0; i <= 1000; i++) {
+            count+=1;
+        }
+        console.log(message)
+    }
+  
+      /** 
+       * Result
+       * 0 (variable message never changed since it is already assigned)
+       * Micro (Executed in the middle)
+       * Macro (Executed lastly because of low priority)
+       */
+}
+
+closureEventLoop()()
+```
