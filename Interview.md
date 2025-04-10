@@ -37,8 +37,6 @@ Why does a React component rerender?
 : Props change - useMemo
 : Parent rerender, even if props does not change - React.memo
 : Context updates
-: useEffect update state
-: Inline Functions & Objects
 
 ```jsx
 function Parent() {
