@@ -4,6 +4,11 @@
 * What is Tan-stack Query, what state it should handle? How does it compare with Redux and Zustand
 
 # Javascript Core
+
+What types in Javascript?
+Primitive: boolean, string, number, symbol, undefined, null 
+Reference: Object, Function
+
 * var, let and const
 
 | Feature                   | var       | let                                                    | const                                                  |
