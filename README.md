@@ -235,3 +235,4 @@ const student = new Student("Luu", 5);
 ```
 
 # Generator (TODO)
+# Cookie vs LocalStorage vs SessionStorage (TODO)
