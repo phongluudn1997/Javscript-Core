@@ -233,3 +233,5 @@ class Student extends Person {
 
 const student = new Student("Luu", 5);
 ```
+
+# Generator (TODO)

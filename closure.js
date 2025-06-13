@@ -5,9 +5,10 @@
 
 function a() {
   let count = 0;
+  let message = `count: ${count}`
   return function () {
     count++;
-    console.log(count);
+    console.log(message);
   };
 }
 
