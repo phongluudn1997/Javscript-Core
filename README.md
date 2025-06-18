@@ -236,3 +236,5 @@ const student = new Student("Luu", 5);
 
 # Generator (TODO)
 # Cookie vs LocalStorage vs SessionStorage (TODO)
+# Promise.all vs Promise.allSettled
+# Why we should we setState with a callback other than just a value?
